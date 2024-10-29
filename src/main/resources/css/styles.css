@@ -1,0 +1,97 @@
+/* CSS Styles */
+
+/* General styling for the root VBox */
+.vbox {
+    -fx-background-color: #f0f8ff;
+    -fx-padding: 10;
+}
+
+
+/* Adding a light blue background color to the AnchorPane */
+.anchor-pane {
+    -fx-background-color: #e6f7ff;
+}
+
+/* Style for MenuBar */
+.menu-bar {
+    -fx-background-color: #d3d3d3;
+}
+
+/* Style for Menu */
+.menu {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Style for MenuItem */
+.menu-item {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-table-cell-border-color: #dcdcdc;
+    -fx-selection-bar: #333333;
+    -fx-selection-bar-non-focused: #cccccc;
+}
+
+.table-column {
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+}
+
+/* Adding border to the TextArea */
+.text-area {
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+/* Adding border to the TableView */
+.table-view {
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+
+
+/* Styling for TextFields */
+.text-field {
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+/* Styling for Buttons */
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 1px;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}
+
+.button:pressed {
+    -fx-background-color: #388e3c;
+}
+
+/* Style for the Labels */
+.label {
+    -fx-text-fill: #9f9f9f;
+    -fx-font-size: 12px;
+}
+

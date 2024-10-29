@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.csc325_firebase_webview_auth.view.AccessFBView">
+    <children>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem fx:id="signInMenuItem" text="Sign In" onAction="#handleSignInMenuAction"/>
+                <MenuItem fx:id="registerMenuItem" text="Register" onAction="#handleRegisterMenuAction"/>
+                <MenuItem text="Open" onAction="#handleOpenMenuAction"/>
+                <MenuItem text="Save" onAction="#handleSaveMenuAction"/>
+                <MenuItem text="Logout" fx:id="signOutMenuItem" onAction="#handleSignOutMenuAction" />
+                <MenuItem text="Exit" fx:id="exitMenuItem" onAction="#handleExitMenuAction"/>
+            </Menu>
+            <Menu text="Edit">
+                <MenuItem text="Undo" onAction="#handleUndoMenuAction"/>
+                <MenuItem fx:id="redoMenuItem" text="Redo" onAction="#handleRedoAction"/>
+            </Menu>
+        </MenuBar>
+
+        <VBox spacing="10" AnchorPane.topAnchor="40" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+            <Label fx:id="loggedInLabel" text="" visible="false" style="-fx-font-weight: bold;"/>
+            <GridPane hgap="100" vgap="10">
+                <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Major:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="majorField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Image URL:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="imageURLField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+
+                <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" alignment="CENTER">
+                    <Button text="Add Record" fx:id="writeButton" onAction="#addRecord" minWidth="100"/>
+                    <Button text="Read Records" fx:id="readButton" onAction="#readRecord" minWidth="100"/>
+                    <Button text="Delete Record" fx:id="deleteButton" onAction="#handleDeleteRecord" minWidth="100"/>
+                    <Button text="Edit Record" fx:id="editButton" onAction="#editRecord" minWidth="100"/>
+                    <Button text="Sign In" onAction="#showSignInPage" minWidth="100"/>
+                    <Button text="Register User" onAction="#regRecord" minWidth="100"/>
+                </HBox>
+
+                <!-- Move ImageView to the right and allow it to occupy more space -->
+                <ImageView fx:id="profileImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.rowSpan="5" />
+            </GridPane>
+
+            <!-- Set a fixed height for the TableView to prevent movement -->
+            <TableView fx:id="tableView" prefHeight="200" prefWidth="600" minHeight="200" maxHeight="200">
+                <columns>
+                    <TableColumn fx:id="nameColumn" text="Name"/>
+                    <TableColumn fx:id="majorColumn" text="Major"/>
+                    <TableColumn fx:id="ageColumn" text="Age"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>
