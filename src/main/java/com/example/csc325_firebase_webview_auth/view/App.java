@@ -78,6 +78,7 @@ public class App extends Application {
         splashController.setMainApp(this, splashStage);
     }
 
+    // a change
     public void showMainApplicationWindow() {
         try {
             // Load the main application FXML
