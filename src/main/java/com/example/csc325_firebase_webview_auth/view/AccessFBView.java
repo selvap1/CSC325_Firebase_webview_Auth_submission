@@ -93,6 +93,9 @@ public class AccessFBView {
         majorColumn.setMinWidth(150);
         ageColumn.setMinWidth(50);
 
+        // Set column resize policy to remove extra space columns
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
         // Add selection listener to TableView
         tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, selectedPerson) -> {
             if (selectedPerson != null) {

@@ -1,63 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.csc325_firebase_webview_auth.view.AccessFBView">
+<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc325_firebase_webview_auth.view.AccessFBView">
     <children>
         <MenuBar>
             <Menu text="File">
-                <MenuItem fx:id="signInMenuItem" text="Sign In" onAction="#handleSignInMenuAction"/>
-                <MenuItem fx:id="registerMenuItem" text="Register" onAction="#handleRegisterMenuAction"/>
-                <MenuItem text="Open" onAction="#handleOpenMenuAction"/>
-                <MenuItem text="Save" onAction="#handleSaveMenuAction"/>
-                <MenuItem text="Logout" fx:id="signOutMenuItem" onAction="#handleSignOutMenuAction" />
-                <MenuItem text="Exit" fx:id="exitMenuItem" onAction="#handleExitMenuAction"/>
+                <MenuItem fx:id="signInMenuItem" onAction="#handleSignInMenuAction" text="Sign In" />
+                <MenuItem fx:id="registerMenuItem" onAction="#handleRegisterMenuAction" text="Register" />
+                <MenuItem onAction="#handleOpenMenuAction" text="Open" />
+                <MenuItem onAction="#handleSaveMenuAction" text="Save" />
+                <MenuItem fx:id="signOutMenuItem" onAction="#handleSignOutMenuAction" text="Logout" />
+                <MenuItem fx:id="exitMenuItem" onAction="#handleExitMenuAction" text="Exit" />
             </Menu>
             <Menu text="Edit">
-                <MenuItem text="Undo" onAction="#handleUndoMenuAction"/>
-                <MenuItem fx:id="redoMenuItem" text="Redo" onAction="#handleRedoAction"/>
+                <MenuItem onAction="#handleUndoMenuAction" text="Undo" />
+                <MenuItem fx:id="redoMenuItem" onAction="#handleRedoAction" text="Redo" />
             </Menu>
         </MenuBar>
 
-        <VBox spacing="10" AnchorPane.topAnchor="40" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
-            <Label fx:id="loggedInLabel" text="" visible="false" style="-fx-font-weight: bold;"/>
-            <GridPane hgap="100" vgap="10">
-                <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
-                <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <!-- Wrap the content in a ScrollPane for scrollable content -->
+        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="40">
+            <content>
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    <Label fx:id="loggedInLabel" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="" visible="false" />
 
-                <Label text="Major:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
-                <TextField fx:id="majorField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <!-- GridPane with input fields, shortened in width -->
+                    <HBox spacing="20">
+                        <GridPane hgap="30" vgap="20">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <TextField fx:id="nameField" prefHeight="40" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
-                <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Major:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <TextField fx:id="majorField" prefHeight="40" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Image URL:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
-                <TextField fx:id="imageURLField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <TextField fx:id="ageField" prefHeight="40" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Image URL:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                            <TextField fx:id="imageURLField" prefHeight="40" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                        </GridPane>
 
-                <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" alignment="CENTER">
-                    <Button text="Add Record" fx:id="writeButton" onAction="#addRecord" minWidth="100"/>
-                    <Button text="Read Records" fx:id="readButton" onAction="#readRecord" minWidth="100"/>
-                    <Button text="Delete Record" fx:id="deleteButton" onAction="#handleDeleteRecord" minWidth="100"/>
-                    <Button text="Edit Record" fx:id="editButton" onAction="#editRecord" minWidth="100"/>
-                    <Button text="Sign In" onAction="#showSignInPage" minWidth="100"/>
-                    <Button text="Register User" onAction="#regRecord" minWidth="100"/>
-                </HBox>
+                        <!-- ImageView positioned in the top-right -->
+                        <VBox alignment="TOP_RIGHT" style="-fx-padding: 10;">
+                            <ImageView fx:id="profileImage" fitHeight="267.0" fitWidth="524.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #dcdcdc; -fx-border-width: 2px; -fx-border-radius: 5px;">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin></ImageView>
+                        </VBox>
+                    </HBox>
 
-                <!-- Move ImageView to the right and allow it to occupy more space -->
-                <ImageView fx:id="profileImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.rowSpan="5" />
-            </GridPane>
+                    <!-- TableView and Buttons aligned horizontally -->
+                    <HBox alignment="TOP_CENTER" spacing="20">
+                        <!-- TableView with adjusted width -->
+                        <TableView fx:id="tableView" prefHeight="500.0" prefWidth="844.0">
+                            <columns>
+                                <TableColumn fx:id="nameColumn" prefWidth="230" text="Name" />
+                                <TableColumn fx:id="majorColumn" prefWidth="230" text="Major" />
+                                <TableColumn fx:id="ageColumn" prefWidth="230" text="Age" />
+                            </columns>
+                        </TableView>
 
-            <!-- Set a fixed height for the TableView to prevent movement -->
-            <TableView fx:id="tableView" prefHeight="200" prefWidth="600" minHeight="200" maxHeight="200">
-                <columns>
-                    <TableColumn fx:id="nameColumn" text="Name"/>
-                    <TableColumn fx:id="majorColumn" text="Major"/>
-                    <TableColumn fx:id="ageColumn" text="Age"/>
-                </columns>
-            </TableView>
-        </VBox>
+                        <!-- Buttons aligned vertically beside the table -->
+                        <VBox alignment="TOP_CENTER" spacing="10">
+                            <Button fx:id="writeButton" minHeight="40" minWidth="150" onAction="#addRecord" style="-fx-font-size: 16px;" text="Add Record" />
+                            <Button fx:id="readButton" minHeight="40" minWidth="150" onAction="#readRecord" style="-fx-font-size: 16px;" text="Read Records" />
+                            <Button fx:id="deleteButton" minHeight="40" minWidth="150" onAction="#handleDeleteRecord" style="-fx-font-size: 16px;" text="Delete Record" />
+                            <Button fx:id="editButton" minHeight="40" minWidth="150" onAction="#editRecord" style="-fx-font-size: 16px;" text="Edit Record" />
+                            <Button minHeight="40" minWidth="150" onAction="#showSignInPage" style="-fx-font-size: 16px;" text="Sign In" />
+                            <Button minHeight="40" minWidth="150" onAction="#regRecord" style="-fx-font-size: 16px;" text="Register User" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
     </children>
 </AnchorPane>
